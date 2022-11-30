@@ -85,18 +85,20 @@ button {
   font-weight: bold;
 }
 
-form {
+
+/*
+* -- PURE FORM STYLES --
+* Style the form inputs and labels
+*/
+
+.pure-form {
   width: 100%;
-  max-width: 500px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/*
- * -- PURE FORM STYLES --
- * Style the form inputs and labels
- */
- .pure-form label {
+.pure-form label {
   margin: 1em 0 0;
   font-weight: bold;
   font-size: 100%;
@@ -114,7 +116,7 @@ form {
  * -- PURE BUTTON STYLES --
  * I want my pure-button elements to look a little different
  */
- .pure-button {
+.pure-button {
   background-color: #1f8dd6;
   color: white;
   padding: 0.5em 2em;

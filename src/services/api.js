@@ -16,10 +16,6 @@ const Api = {
             return axios.post(buildUrl("/registry/items"), data)
                 .then(r => r.data)
         },
-        delete: async (item) => {
-            return axios.delete(buildUrl(`/registry/items/${item.id}`))
-                .then(r => r.data)
-        }
     },
 }
 

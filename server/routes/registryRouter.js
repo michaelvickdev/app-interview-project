@@ -39,29 +39,31 @@ router.post('/items', (req, res) => {
             return res.status(500).json()
         }
 
-        // get the last insert id
-        // console.log(`A row has been inserted with rowid ${this.lastID}`);
-        return res.json()
+        findById(db, this.lastID)
+            .then(row => {
+                return res.json(row)
+            })
+            .catch(e => {
+                console.error(e);
+                return res.status(500).json()
+            })
     });
-
 })
 
-router.delete('/items/:id', (req, res) => {
-    const { db, params } = req
-
-    const sql = `DELETE FROM registry_items WHERE id = ?`
-    const sqlParams = [params.id]
+const findById = (db, id) => {
+    const sql = `SELECT * from registry_items WHERE id = ?`
+    const sqlParams = [id]
 
 
-    db.run(sql, sqlParams, function (err) {
-        if (err) {
-            console.error(err);
-            return res.status(500).json()
-        }
+    return new Promise((resolve, reject) => {
+        db.get(sql, sqlParams, function (err, row) {
+            if (err) {
+                return reject(err)
+            }
 
-        return res.json()
-    });
-
-})
+            return resolve(row)
+        });
+    })
+}
 
 module.exports = router

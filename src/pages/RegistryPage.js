@@ -35,15 +35,8 @@ const RegistryPage = () => {
 
         try {
             const result = await Api.registryItem.create(itemToAdd)
+            console.log(result)
             setItems([...items, result])
-        } catch (err) {
-            console.error(err)
-        }
-    }
-
-    const handleDeleteItem = async (item) => {
-        try {
-            const result = await Api.registryItem.delete(item)
         } catch (err) {
             console.error(err)
         }
@@ -80,16 +73,11 @@ const RegistryPage = () => {
                                 onChange={(e) => handleItemChange(e, index, item)}
                             />
                         </div>
-                        <div className="pure-u-2-12">
-                            <button type="button" className="pure-button" onClick={() => handleDeleteItem(item)}>Delete</button>
-                        </div>
                     </div>
                 ))}
             </form>
             <div className="divider"></div>
             <div style={{
-                textAlign: "left",
-                width: "100%",
                 maxWidth: 400
             }}>
                 <form className="pure-form" onSubmit={handleAddItemSubmit}>

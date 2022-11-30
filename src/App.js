@@ -1,13 +1,16 @@
 import { Routes, Route } from 'react-router-dom'
-import "./App.css"
-import HomePage from './pages/HomePage';
 import ROUTES from './config/routes';
+import HomePage from './pages/HomePage';
+import OnboardingPage from './pages/OnboardingPage';
+import RegistryPage from './pages/RegistryPage';
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path={ROUTES.HOME} element={<HomePage />} />
+        <Route exact path={ROUTES.HOME} element={<HomePage />} />
+        <Route exact path={ROUTES.ONBOARDING} element={<OnboardingPage />} />
+        <Route exact path={ROUTES.REGISTRY} element={<RegistryPage />} />
       </Routes>
     </div>
   );

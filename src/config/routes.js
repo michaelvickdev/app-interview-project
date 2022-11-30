@@ -1,6 +1,7 @@
-const ROUTES = Object.freeze({
+const ROUTES = {
     HOME: "/",
-    ONBOARDING: "/setup"
-})
+    ONBOARDING: "/setup",
+    REGISTRY: "/registry",
+}
 
 export default ROUTES

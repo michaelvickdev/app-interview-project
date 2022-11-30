@@ -49,27 +49,17 @@ const RegistryPage = () => {
                 <p style={{ color: "#6c6c6c" }}>Add your first registry item below</p>
             )}
             <form className="pure-form">
-                {items.length > 0 && (
-                    <div className="pure-g">
-                        <div className="pure-u-5-12">
-                            <label>Name</label>
-                        </div>
-                        <div className="pure-u-5-12">
-                            <label>Price</label>
-                        </div>
-                    </div>
-                )}
                 {items.map((item, index) => (
-                    <div key={item.id} className="pure-g">
-                        <div className="pure-u-5-12">
+                    <div key={item.id} className="registry-item">
+                        <div className="registry-item__input">
+                            {index === 0 && <label>Name</label>}
                             <input type="text" name="name" value={item.name}
-                                className="pure-u-23-24"
                                 onChange={(e) => handleItemChange(e, index, item)}
                             />
                         </div>
-                        <div className="pure-u-5-12">
+                        <div className="registry-item__input">
+                            {index === 0 && <label>Price</label>}
                             <input type="text" name="price" value={item.price}
-                                className="pure-u-23-24"
                                 onChange={(e) => handleItemChange(e, index, item)}
                             />
                         </div>

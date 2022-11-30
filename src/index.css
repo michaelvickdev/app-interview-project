@@ -85,6 +85,19 @@ button {
   font-weight: bold;
 }
 
+.registry-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: left;
+  width: 100%;
+}
+
+.registry-item__input {
+  flex-grow: 1;
+}
+
 
 /*
 * -- PURE FORM STYLES --

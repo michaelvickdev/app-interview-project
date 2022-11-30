@@ -1,3 +1,9 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 html,
 body {
   display: initial;
@@ -12,6 +18,7 @@ body {
   justify-content: center;
   width: 100%;
   min-height: 100vh;
+  padding-top: 50px;
 }
 
 .choices {
@@ -80,12 +87,90 @@ button {
 
 form {
   width: 100%;
-  max-width: 800px;
+  max-width: 500px;
   margin-left: auto;
   margin-right: auto;
 }
 
-input {
+/*
+ * -- PURE FORM STYLES --
+ * Style the form inputs and labels
+ */
+ .pure-form label {
+  margin: 1em 0 0;
+  font-weight: bold;
+  font-size: 100%;
+}
+
+.pure-form input[type] {
+  border: 2px solid #ddd;
+  box-shadow: none;
+  font-size: 100%;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 1em;
+}
+
+/*
+ * -- PURE BUTTON STYLES --
+ * I want my pure-button elements to look a little different
+ */
+ .pure-button {
+  background-color: #1f8dd6;
+  color: white;
+  padding: 0.5em 2em;
+  border-radius: 5px;
+}
+
+a.pure-button-primary {
+  background: white;
+  color: #1f8dd6;
+  border-radius: 5px;
+  font-size: 120%;
+}
+
+
+/*
+ * -- MENU STYLES --
+ * I want to customize how my .pure-menu looks at the top of the page
+ */
+
+.home-menu {
+  padding: 0.5em;
+  text-align: center;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10);
+}
+
+.home-menu {
+  background: #2d3e50;
+}
+
+.pure-menu.pure-menu-fixed {
+  /* Fixed menus normally have a border at the bottom. */
+  border-bottom: none;
+  /* I need a higher z-index here because of the scroll-over effect. */
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home-menu .pure-menu-heading {
+  color: white;
+  font-weight: 400;
+  font-size: 120%;
+}
+
+.home-menu .pure-menu-selected a {
+  color: white;
+}
+
+.home-menu a {
+  color: #6FBEF3;
+}
+
+.home-menu li a:hover,
+.home-menu li a:focus {
+  background: none;
+  border: none;
+  color: #AECFE5;
 }

@@ -1,70 +1,20 @@
-# Getting Started with Create React App
+# App Interview Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is an example project we use for all app developer interview candidates. It is designed to look and feel like a real application so that we can better guage how you will operate in a project with our clients.
 
-## Available Scripts
+Thank you for taking the time to work on the project and interview with us. We appreciate your time.
 
-In the project directory, you can run:
+## Grading Criteria
 
-### `npm start`
+One thing we dislike about many interview processes is a lack of transparency to how a person is being graded. Below is our grading criteria for the assignment. This also mirrors many of the exact skills we need the ideal person to have.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Fullstack Skillset. You will be asked to add/fix code related to the entire software stack. This means some frontend UI, some API intergration, some backend, and some database. We don't need you to be an expert at all, but you must handle all for this job.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. Client Business/Requirements. How well are you able to understand the client business and adapt/suggest solutions that fit them specifically? Every client project we have is unique, you will need to be able to quickly grasp concepts from the client's business 
+3. Feature Work. Can you perform routine feature work development for the project as if the client was asking for them. We will assign a few small improvements to the code. You will be asked to complete these as part of the assignment.
+4. Bug Fixes. How well can you identify and fix bugs the client finds during testing? All of our projects are developed in realtime with the client. You will be receiving feedback and need to tweak things nearly every week of the project.
+5. Testing. You will be asked do write a few tests for your code. Automated tests are the backbone of confidence shipping products to clients and customers.
+6. Effectiveness vs Perfection. We routinely need to sacrifice ideal code in favor of effective code that gets the job done now. This means we often take on technical debt and document what needs improved later.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Development

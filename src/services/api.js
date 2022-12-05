@@ -16,6 +16,10 @@ const Api = {
             return axios.post(buildUrl("/registry/items"), data)
                 .then(r => r.data)
         },
+        delete: async (id) => {
+            return axios.delete(buildUrl("/registry/items/" + id))
+                .then(r => r.data)
+        },
     },
 }
 

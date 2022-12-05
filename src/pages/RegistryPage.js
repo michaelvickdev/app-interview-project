@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react"
+import { useForm } from "react-hook-form"
+import Input from "../components/Input"
 import Api from "../services/api"
 
 const RegistryPage = () => {
-    const [itemToAdd, setItemtoAdd] = useState({
-        name: "",
-        price: null,
-    })
     const [items, setItems] = useState([])
 
-    useEffect(() => {
+    const getData = () => {
         Api.registryItem.query()
-            .then((newItems) => setItems(newItems))
+        .then((newItems) => setItems(newItems))
+    }
+    
+    useEffect(() => {
+        getData()
     }, [])
 
     const handleItemChange = (e, index, item) => {
@@ -23,23 +25,32 @@ const RegistryPage = () => {
         setItems([...items])
     }
 
-    const handleItemToAddChange = (e) => {
-        setItemtoAdd({
-            ...itemToAdd,
-            [e.currentTarget.name]: e.currentTarget.value
-        })
+    const { control, handleSubmit, setError, reset } = useForm({
+        defaultValues: {
+            name: "",
+            price: ""
+        }
+    })
+
+    const handleAddItemSubmit = async (values, e,props) => {
+        try {
+            const result = await Api.registryItem.create(values)
+            setItems([...items, result])
+            reset()
+        } catch (err) {
+            const message = err?.response?.data?.message || "Internal server error"
+            setError("price", { message })
+        }
     }
 
-    const handleAddItemSubmit = async (e) => {
-        e.preventDefault()
-
-        try {
-            const result = await Api.registryItem.create(itemToAdd)
-            console.log(result)
-            setItems([...items, result])
-        } catch (err) {
-            console.error(err)
+    const handleDelete = (item) => {
+        if (window.confirm(`Are you sure you want to delete ${item.name}?`)) {
+            Api.registryItem.delete(item.id)
+            .then(res => {
+                getData()
+            })
         }
+
     }
 
     return (
@@ -63,6 +74,9 @@ const RegistryPage = () => {
                                 onChange={(e) => handleItemChange(e, index, item)}
                             />
                         </div>
+                        <div style={{ marginTop: index === 0 ? "0px" : "-16px" }}>
+                            <button onClick={() => handleDelete(item)} type="button" className="registry-item__delete">Delete</button>
+                        </div>
                     </div>
                 ))}
             </form>
@@ -70,13 +84,24 @@ const RegistryPage = () => {
             <div style={{
                 maxWidth: 400
             }}>
-                <form className="pure-form" onSubmit={handleAddItemSubmit}>
+                <form className="pure-form" onSubmit={handleSubmit(handleAddItemSubmit)}>
                     <fieldset>
                         <h3>Add Item</h3>
-                        <label>Name</label>
-                        <input type="text" name="name" onChange={handleItemToAddChange} />
-                        <label>Price</label>
-                        <input type="text" name="price" onChange={handleItemToAddChange} />
+                        <Input
+                            type="text"
+                            label="Name"
+                            name="name"
+                            control={control}
+                            required
+                        />
+                        <Input
+                            type="number"
+                            label="Price"
+                            name="price"
+                            control={control}
+                            required
+                            step=".01"
+                        />
                         <button type="submit" className="pure-button pure-button-primary">Save</button>
                     </fieldset>
                 </form>

@@ -98,6 +98,16 @@ button {
   flex-grow: 1;
 }
 
+.registry-item__delete {
+  min-width: 80px;
+  background: red;
+  color: white;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
 
 /*
 * -- PURE FORM STYLES --
@@ -123,6 +133,11 @@ button {
   font-size: 100%;
   width: 100%;
   margin-bottom: 1em;
+}
+
+.pure-form .error {
+  color: red;
+  margin-top: 0.8em;
 }
 
 /*

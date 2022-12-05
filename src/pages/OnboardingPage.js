@@ -2,6 +2,8 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Api from "../services/api"
 import ROUTES from "../config/routes"
+import { useForm } from "react-hook-form"
+import Input from "../components/Input"
 
 const STEPS = {
     INTRO: "intro",
@@ -12,26 +14,17 @@ const STEPS = {
 const OnboardingPage = () => {
     const navigate = useNavigate()
     const [step, setStep] = useState(STEPS.INTRO)
-    const [user, setUser] = useState({
-        firstName: "",
-        lastName: "",
-    })
 
-    const handleChange = (e) => {
-        setUser({
-            ...user,
-            [e.currentTarget.name]: e.currentTarget.value
-        })
-    }
+    const { handleSubmit, control, setError } = useForm();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
+    const submit = async (values) => {
 
         try {
-            await Api.register(user)
+            await Api.register(values)
             setStep(STEPS.REGISTRY)
         } catch (e) {
-            console.error(e)
+            const message = e?.response?.data?.message || "Internal server error"
+            setError("phoneNumber", { message })
         }
     }
 
@@ -47,19 +40,35 @@ const OnboardingPage = () => {
             {step === STEPS.ACCOUNT && (
                 <>
                     <h2>Tell us about you</h2>
-                    <form onSubmit={handleSubmit} className="pure-form">
-                        <div>
-                            <label>First name</label>
-                            <input type="text" name="firstName" onChange={handleChange} required />
-                        </div>
-                        <div>
-                            <label>Last name</label>
-                            <input type="text" name="lastName" onChange={handleChange} required />
-                        </div>
-                        <div>
-                            <label>Email</label>
-                            <input type="email" name="email" onChange={handleChange} required />
-                        </div>
+                    <form onSubmit={handleSubmit(submit)} className="pure-form">
+                        <Input
+                            control={control}
+                            label="First name"
+                            name="firstName"
+                            type="text"
+                            required
+                        />
+                        <Input
+                            control={control}
+                            label="Last name"
+                            name="lastName"
+                            type="text"
+                            required
+                        />
+                        <Input
+                            control={control}
+                            label="Email"
+                            name="email"
+                            type="email"
+                            required
+                        />
+                        <Input
+                            control={control}
+                            label="Phone number"
+                            name="phoneNumber"
+                            type="text"
+                            required
+                        />
                         {/* TODO: we'll need phone number soon */}
                         <button className="pure-button pure-button-primary" type="submit" onClick={handleSubmit}>NEXT</button>
                     </form>
